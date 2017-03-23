@@ -1,0 +1,23 @@
+{
+    "name": "gplcart/zopim",
+    "type": "gplcart-module",
+    "description": "Integrates Zopim live chat into your GPL Cart site",
+    "keywords": ["gplcart", "ecommerce", "shopping cart", "gplcart module", "live chat", "zopim"],
+    "homepage": "https://github.com/gplcart/zopim",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Iurii Makukh",
+            "email": "gplcart.software@gmail.com",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/gplcart/zopim/issues"
+    },
+    "require": {
+        "gplcart/composer-module-installer": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
