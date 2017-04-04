@@ -103,7 +103,7 @@ class Settings extends BackendController
     protected function validateSettings()
     {
         $this->setSubmitted('settings');
-        return !$this->hasErrors('settings');
+        return !$this->hasErrors();
     }
 
     /**
