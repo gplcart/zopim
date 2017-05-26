@@ -13,7 +13,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label"><?php echo $this->text('Code'); ?></label>
         <div class="col-md-6">
-          <textarea name="settings[code]" rows="6" class="form-control" placeholder="window.$zopim||(function(d,s){..."><?php echo $this->escape($settings['code']); ?></textarea>
+          <textarea name="settings[code]" rows="6" class="form-control" placeholder="window.$zopim||(function(d,s){..."><?php echo $this->e($settings['code']); ?></textarea>
           <div class="help-block"><?php echo $this->text('Paste your widget code WITHOUT wrapping "script" tags. To get your code go to https://dashboard.zopim.com > Settings > Widget'); ?></div>
         </div>
       </div>
@@ -23,7 +23,7 @@
           <select class="form-control" name="settings[trigger_id]">
             <option value=""><?php echo $this->text('- None, display on every page -'); ?></option>
             <?php foreach ($triggers as $trigger_id => $trigger) { ?>
-                <option value="<?php echo $this->escape($trigger_id); ?>"<?php echo $settings['trigger_id'] == $trigger_id ? ' selected' : ''; ?>><?php echo $this->escape($trigger['name']); ?></option>
+                <option value="<?php echo $this->e($trigger_id); ?>"<?php echo $settings['trigger_id'] == $trigger_id ? ' selected' : ''; ?>><?php echo $this->e($trigger['name']); ?></option>
             <?php } ?>
           </select>
           <div class="help-block"><?php echo $this->text('Select a <a href="@url">trigger</a> to show chat widget', array('@url' => $this->url('admin/settings/trigger'))); ?></div>
