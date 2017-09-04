@@ -32,6 +32,7 @@ class Settings extends BackendController
     protected $module;
 
     /**
+     * @param ModuleModel $module
      * @param TriggerModel $trigger
      */
     public function __construct(ModuleModel $module, TriggerModel $trigger)
