@@ -47,9 +47,7 @@ class Zopim extends Module
     {
         $settings = $this->config->module('zopim');
 
-        if (!empty($settings['code'])//
-                && (empty($settings['trigger_id'])//
-                || $controller->isTriggered($settings['trigger_id']))) {
+        if (!empty($settings['code']) && (empty($settings['trigger_id']) || $controller->isTriggered($settings['trigger_id']))) {
             $options = array('position' => 'bottom', 'aggregate' => false);
             $controller->setJs($settings['code'], $options);
         }
