@@ -9,7 +9,8 @@
 
 namespace gplcart\modules\zopim;
 
-use gplcart\core\Module;
+use gplcart\core\Module,
+    gplcart\core\Config;
 
 /**
  * Main class for Zopim module
@@ -18,11 +19,11 @@ class Zopim extends Module
 {
 
     /**
-     * Constructor
+     * @param Config $config
      */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct();
+        parent::__construct($config);
     }
 
     /**
@@ -45,7 +46,7 @@ class Zopim extends Module
      */
     public function hookConstructControllerFrontend($controller)
     {
-        $settings = $this->config->module('zopim');
+        $settings = $this->config->getFromModule('zopim');
 
         if (!empty($settings['code']) && (empty($settings['trigger_id']) || $controller->isTriggered($settings['trigger_id']))) {
             $options = array('position' => 'bottom', 'aggregate' => false);

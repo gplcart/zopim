@@ -52,7 +52,7 @@ class Settings extends BackendController
         $this->setBreadcrumbEditSettings();
 
         $this->setData('triggers', $this->trigger->getList());
-        $this->setData('settings', $this->config->module('zopim'));
+        $this->setData('settings', $this->config->getFromModule('zopim'));
 
         $this->submitSettings();
         $this->outputEditSettings();
