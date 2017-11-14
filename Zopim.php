@@ -46,11 +46,21 @@ class Zopim extends Module
      */
     public function hookConstructControllerFrontend($controller)
     {
-        $settings = $this->config->getFromModule('zopim');
+        $this->setModuleAssets($controller);
+    }
 
-        if (!empty($settings['code']) && (empty($settings['trigger_id']) || $controller->isTriggered($settings['trigger_id']))) {
-            $options = array('position' => 'bottom', 'aggregate' => false);
-            $controller->setJs($settings['code'], $options);
+    /**
+     * Sets module specific assets
+     * @param \gplcart\core\controllers\frontend\Controller $controller
+     */
+    protected function setModuleAssets($controller)
+    {
+        if (!$controller->isInternalRoute()) {
+            $settings = $this->config->getFromModule('zopim');
+            if (!empty($settings['code']) && (empty($settings['trigger_id']) || $controller->isTriggered($settings['trigger_id']))) {
+                $options = array('position' => 'bottom', 'aggregate' => false);
+                $controller->setJs($settings['code'], $options);
+            }
         }
     }
 
