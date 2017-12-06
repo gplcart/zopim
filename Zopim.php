@@ -9,21 +9,26 @@
 
 namespace gplcart\modules\zopim;
 
-use gplcart\core\Module,
-    gplcart\core\Config;
+use gplcart\core\Module;
 
 /**
  * Main class for Zopim module
  */
-class Zopim extends Module
+class Zopim
 {
 
     /**
-     * @param Config $config
+     * Module class instance
+     * @var \gplcart\core\Module $module
      */
-    public function __construct(Config $config)
+    protected $module;
+
+    /**
+     * @param Module $module
+     */
+    public function __construct(Module $module)
     {
-        parent::__construct($config);
+        $this->module = $module;
     }
 
     /**
@@ -56,10 +61,9 @@ class Zopim extends Module
     protected function setModuleAssets($controller)
     {
         if (!$controller->isInternalRoute()) {
-            $settings = $this->config->getFromModule('zopim');
+            $settings = $this->module->getSettings('zopim');
             if (!empty($settings['code']) && (empty($settings['trigger_id']) || $controller->isTriggered($settings['trigger_id']))) {
-                $options = array('position' => 'bottom', 'aggregate' => false);
-                $controller->setJs($settings['code'], $options);
+                $controller->setJs($settings['code'], array('position' => 'bottom', 'aggregate' => false));
             }
         }
     }
