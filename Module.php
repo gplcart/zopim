@@ -9,12 +9,12 @@
 
 namespace gplcart\modules\zopim;
 
-use gplcart\core\Module;
+use gplcart\core\Module as CoreModule;
 
 /**
  * Main class for Zopim module
  */
-class Zopim
+class Module
 {
 
     /**
@@ -24,9 +24,9 @@ class Zopim
     protected $module;
 
     /**
-     * @param Module $module
+     * @param CoreModule $module
      */
-    public function __construct(Module $module)
+    public function __construct(CoreModule $module)
     {
         $this->module = $module;
     }
