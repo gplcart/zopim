@@ -9,13 +9,13 @@
 
 namespace gplcart\modules\zopim\controllers;
 
-use gplcart\core\models\Trigger as TriggerModel;
-use gplcart\core\controllers\backend\Controller as BackendController;
+use gplcart\core\controllers\backend\Controller;
+use gplcart\core\models\Trigger;
 
 /**
  * Handles incoming requests and outputs data related to Zopim module
  */
-class Settings extends BackendController
+class Settings extends Controller
 {
 
     /**
@@ -25,9 +25,10 @@ class Settings extends BackendController
     protected $trigger;
 
     /**
-     * @param TriggerModel $trigger
+     * Settings constructor.
+     * @param Trigger $trigger
      */
-    public function __construct(TriggerModel $trigger)
+    public function __construct(Trigger $trigger)
     {
         parent::__construct();
 
